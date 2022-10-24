@@ -1,4 +1,4 @@
-name: ESLint Report Action
+name: ESLint Report
 description: Create a summary with the generated ESLint JSON report.
 
 inputs:
