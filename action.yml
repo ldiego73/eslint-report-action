@@ -1,4 +1,4 @@
-name: ESLint Report Action
+name: ESLint Report
 description: Create a summary with the generated ESLint JSON report.
 
 inputs:
@@ -13,7 +13,7 @@ inputs:
   title:
     description: the Summary title
     required: false
-    default: ESLint Report Action
+    default: ESLint Report
   view-rules:
     description: Enables the display of errors or warnings by rules
     required: false
