@@ -1,0 +1,53 @@
+{
+  "name": "eslint-report-action",
+  "version": "1.0.0",
+  "description": "A Github Action that convert ESLint report to markdown",
+  "main": "dist/index.js",
+  "repository": "https://github.com/ldiego73/eslint-report-action.git",
+  "author": "Luis Diego <lfdiego7@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "cz",
+    "clean": "rm -rf dist",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:json": "eslint 'src/**/*.ts' -f json -o reports/lint.json",
+    "lint:html": "eslint 'src/**/*.ts' -f html -o reports/lint.html",
+    "build": "tsc --pretty --skipLibCheck --noEmit && node ./build.js",
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/cz-commitlint": "^17.1.2",
+    "@types/node": "^18.11.2",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "commitizen": "^4.2.5",
+    "esbuild": "^0.15.12",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-security": "^1.5.0",
+    "eslint-plugin-sonarjs": "^0.16.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  }
+}

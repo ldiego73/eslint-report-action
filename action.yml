@@ -1,0 +1,36 @@
+name: ESLint Report Action
+description: Create a summary with the generated ESLint JSON report.
+
+inputs:
+  token:
+    description: Github Token
+    required: true
+    default: ${{ github.token }}
+  report:
+    description: The path to the ESLint report JSON file
+    required: true
+    default: reports/lint.json
+  title:
+    description: the Summary title
+    required: false
+    default: ESLint Report Action
+  view-rules:
+    description: Enables the display of errors or warnings by rules
+    required: false
+    default: 'true'
+  fail-on-warning:
+    description: Fail when ESLint warnings are detected
+    required: false
+    default: 'false'
+  total-problems:
+    description: Total problems displayed in the report
+    required: false
+    default: '100'
+
+runs:
+  using: node16
+  main: dist/index.js
+
+branding:
+  icon: check-circle
+  color: purple
