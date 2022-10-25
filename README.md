@@ -58,7 +58,7 @@ jobs:
       - run: npm ci
       - run: npm run lint:json
         continue-on-error: true
-      - uses: ldiego73/eslint-report@v1
+      - uses: ldiego73/eslint-report-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           report: reports/lint.json
