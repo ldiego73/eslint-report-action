@@ -77,7 +77,7 @@ export function createDetails(report: ESLintReport) {
     details[i].errors = errors;
   }
 
-  return details;
+  return details.sort((a, b) => b.errors - a.errors || b.warnings - a.warnings);
 }
 
 export function createAnnotations(details: Details): Annotations {
@@ -101,7 +101,7 @@ export function createAnnotations(details: Details): Annotations {
     }
   }
 
-  return annotations;
+  return annotations.sort((a) => a.annotation_level === 'warning' ? 1 : -1);
 }
 
 export function getStatus(totals: Totals): Status {
